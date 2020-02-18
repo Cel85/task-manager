@@ -1,0 +1,36 @@
+creating new project:
+nest new ime-projekta
+
+creating module:
+nest g module ime-modula
+
+creating controller:
+nest g controller ime --no-spec // nece kreirat spec file
+
+main.ts - entry point projekta
+
+NestJS moduli:
+    - svaki appo ima barem jedan root modul, npr app.module.ts
+    - moduli organizirtaju komponente slicnih feature
+    - dobro je imat fodler po modulu koji bi sadrzavao komponente modula
+    - moduli su singletoni
+    - definira se tako sto klasu dekoriramo @Module() dekoratorom
+    - @Module() ima sljedeca svojstva:
+                                    - providers: array providera slobodnih za uporabu unutar module krot dependency injection
+                                    - controllers: array kontrolera instanciranih u modulu
+                                    - exports: array providera za export drugim modulima
+                                    - imporrts: array drugih modula koji su potrebni za rad ovog modula
+
+NestJS Kontroleri:
+    - hendlaju dolazne rekvestove i vraćaju response klijentu
+    - vezani su za specivicnu rutu. npr. '/tasks'
+    - sadrže handlere koji hendlaju endpoiunte i rekvest metode (POST, DELETE etc)
+    - handleri su metoda unutar kontroler klase koji sadrže dekoratore @get(), @Post() itd.
+    - mogu iksoritavat dependecy injection providera unutar istog modula
+    - definira se tako da ekoriramo @Controller('/putanja') deokorator nad klasom
+
+NestJS providersi:
+    - ako imaju dekorator @Injectable(), mogu se ubacit u kontruktor kroz dependency injection
+    - mogu biti klasa, factory, obicna vrijednost, servise, repositroy i sl.-
+    - moraju biti provajdani u module da se mogu koristi
+    - mogu se exportati iz modula
