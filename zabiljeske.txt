@@ -7,6 +7,9 @@ nest g module ime-modula
 creating controller:
 nest g controller ime --no-spec // nece kreirat spec file
 
+creating service:
+ nest g service ime --no-spec
+
 main.ts - entry point projekta
 
 NestJS moduli:
@@ -31,6 +34,9 @@ NestJS Kontroleri:
 
 NestJS providersi:
     - ako imaju dekorator @Injectable(), mogu se ubacit u kontruktor kroz dependency injection
-    - mogu biti klasa, factory, obicna vrijednost, servise, repositroy i sl.-
+    - mogu biti klasa, factory, obicna vrijednost, service (isto singleton), repositroy i sl.-
     - moraju biti provajdani u module da se mogu koristi
     - mogu se exportati iz modula
+
+Dependecy injection
+    - svaka komponenta u nest ekosistemu moze injectat provider (znaci i service) ako ima @Inmjectable()
