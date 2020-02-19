@@ -40,3 +40,26 @@ NestJS providersi:
 
 Dependecy injection
     - svaka komponenta u nest ekosistemu moze injectat provider (znaci i service) ako ima @Inmjectable()
+
+NestJS pipes
+    - Pipes operiraju na argumentima route handlera, malo prije nego sto je rout handler prozvan
+    - rade data validaciju ili tranformaciju koje vracaju route handleru
+    - mogu bacit exepction
+    - mogu biti askinkroni
+    - nestJS dolazio s nekim Pipeovima common modulu kao npr:
+         - ValidationPipe:
+            - usporedjuje validata objekt s klasom (dobro se slaze s DTO)
+         - parseIntPipe
+            . validira dal je argument broj ako da pretvara ga U number i vraca handleru
+        - CustomPipes
+            - imaju @Injectable dekorator
+            moraj implementirat PipeTransform interface i ima transofrm() metodu
+            - transform priam 2 paramtera: value, i metadata
+    - Pipes mogu biti handler - level pipes preko @UsePipes() dekoratora, oni procesiraju sve apramtre dolazeceg rekvesrta
+    - parametar level pipes
+    - global pipes, application level
+
+    Dodtano instaliran library:
+    - uuid
+    - class validator
+    - class transformer
